@@ -16,7 +16,7 @@ async function main(props) {
     });
     const mailOptions = {
         from: 'biriyanikadai2020@gmail.com', // sender address
-        to: "rakeshrajan8484@gmail.com", // list of receivers
+        to: "biriyanikadai2020@gmail.com", // list of receivers
         subject: "new order at Turning Point", // Subject line
         text: `Biriyani order for  ${props.quantity} plates from ${props.address} has been placed. Mobile: ${props.phone}, Amount: ${props.amount}`
     };
