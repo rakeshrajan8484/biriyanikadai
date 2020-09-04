@@ -29,7 +29,7 @@ const Header = () => {
     return (<nav id='header' className="navbar navbar-expand-lg pt-3 shadow bg-dark text-light w-100">
         <a className="navbar-brand" href="#">Turning Point</a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
+            <i class="fas fa-bars"></i>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ml-auto">
