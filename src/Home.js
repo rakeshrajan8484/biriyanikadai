@@ -28,6 +28,7 @@ const Home = () => {
                 setLat(position.coords.latitude)
                 setLong(position.coords.longitude)
             },
+            { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 },
             error => console.log(error),
             {
                 enableHighAccuracy: true,
@@ -115,7 +116,7 @@ const Home = () => {
                             </div>
                             <div class="form-group">
                                 <label for="biriyani">biriyani type</label>
-                                <input type="text" class="form-control" id="biriyani" value="chicken (1/2 plate + 2 piece of chicken 65)" disabled aria-describedby="biriyani" />
+                                <input type="text" class="form-control" id="biriyani" value="chicken (1/2 plate)" disabled aria-describedby="biriyani" />
 
                             </div>
                             <div class="form-group">
