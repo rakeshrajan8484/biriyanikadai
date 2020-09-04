@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var db;
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://rakesh:rocman911@turningpoint.bzdtl.mongodb.net/TurningPoint?retryWrites=true&w=majority', function (err, database) {
+mongoose.connect('mongodb+srv://rakesh:rocman911@turningpoint.j7v8f.mongodb.net/TurningPoint?retryWrites=true&w=majority', function (err, database) {
     if (err) return console.log("error ", err)
     db = database;
     console.log('App is listening on port ' + port);
@@ -98,12 +98,12 @@ app.post('/api/orderFood', (req, res) => {
         address: req.body.address,
         quantity: req.body.quantity,
         amount: req.body.amount,
-        date: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(), 
+        date: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(),
         _id: new ObjectID()
     };
-    
+
     const query = db.collection('Order').insertOne(order);
-     res.json({ data: 'order added' })
+    res.json({ data: 'order added' })
 });
 
 app.post('/api/makePayment', (req, res) => {
