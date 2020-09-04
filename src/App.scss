@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body{
+  margin: 0;
+  padding:0;
+  overflow-x: hidden;
+}
+.App{
+      overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+  a{
+    color:#fff;
+  }
+  section{
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .content {
+  padding: 16px;
+}
+
+.sticky {
+    background-color: #3f3f3d;
+  position: fixed;
+   box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
+  width: 100%;
+  z-index: 999;
+  padding-top:20px !important;
+  animation: nav 0.5s ease-in-out;
+  .nav-item a{
+        color: rgb(255, 255, 255) !important;
+    }
+    .btn{
+       color: rgb(255, 255, 255) !important;
+       border:1px solid rgb(255, 255, 255) !important;
+    }
+    .btn:hover{
+      color:#000
+    }
+    i{
+        color:rgb(0, 0, 0) !important
+    }
+    .navbar-toggler:hover{
+        background-color: transparent !important;
+    }
+}
+@keyframes nav{
+    0%{top:-500px}
+    100%{top:0}
+}
+
+.sticky + .content {
+  padding-top: 250px;
+}
+  .homeBg{
+    background: url('./images/205.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content{
+      background-color: rgba(0,0,0,0.7);
+      color:#fff;
+      padding:20px;
+      text-align-last: center;
+      h1{
+        font-size: 4rem;
+      }
+      p{
+        font-size: 2rem;
+      }
+      i{
+        font-size: 3rem;
+        animation: arrow 2s infinite;
+      }
+      @keyframes arrow{
+        0%{transform: translateY(0);}
+        50%{transform: translateY(20px);}
+        100%{transform: translateY(0);}
+      }
+    }
+  }
+  #offers, #contact{
+    h1{
+      width: max-content;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    h1::before{
+      content:"";
+      position: absolute;
+      left: 30%;
+      bottom: 0;
+      width: 100px;
+      height: 2px;
+      background-color: rgb(255, 0, 0)
+    }
+  }
+  #offers{
+    .offer{
+      width: 350px;
+      text-align: center;
+    }
+  }
+  #contact{
+    flex-direction: column;
+     background: url('./images/22.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content{
+      background-color: rgba(0,0,0,0.7);
+      color:#fff;
+      padding:20px;
+       
+    }
+    form{
+      
+      .form-group{
+        position: relative;
+        height: 60px;
+        input, label, small{
+          position: absolute;
+          bottom:0
+        }
+        input, textarea{
+          border:0;
+          border-bottom:1px solid  rgb(180, 2, 2);
+          border-radius: 0;
+          outline:none;
+          box-shadow: none;
+          background: transparent;
+          color:#fff;
+        }
+        label{
+          pointer-events: none;
+          transition: 0.5s;
+        }
+        input:focus + label, input:valid + label{
+          transform: translateY(-25px);
+          transition: 0.5s;
+          font-size: 0.7rem;
+        }
+        input:valid, textarea:valid{
+          border-bottom:1px solid  rgb(8, 180, 2);
+        }
+         textarea:focus + label, textarea:valid + label{
+          transform: translateY(-50px);
+          transition: 0.5s;
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width:768px){
+  h1{
+    font-size: 3rem !important;
+    text-align: center;
+  }
+  p{
+    font-size: 1rem !important;
+     text-align: center;
+  }
+  #offers{
+    div{
+    flex-direction: column !important; 
+    align-items: center;
+    }
+  }
+  #offers, #contact{
+    h1{
+      width: auto !important;
+    }
+  }
+}
