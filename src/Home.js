@@ -28,7 +28,10 @@ const Home = () => {
                 setLat(position.coords.latitude)
                 setLong(position.coords.longitude)
             },
-            { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 },
+            {
+                enableHighAccuracy: true
+                , timeout: 5000, maximumAge: 1000
+            },
             error => console.log(error),
             {
                 enableHighAccuracy: true,
@@ -47,11 +50,11 @@ const Home = () => {
         );
     }
     const [region, setRegion] = useState()
-    const [initialRegion, setInitialRegion] = useState()
+
     const [lat, setLat] = useState(0)
     const [lng, setLong] = useState(0)
     const [address, setAddress] = useState("")
-    const [response, setResponse] = useState("")
+    const [responseReceived, setResponse] = useState("")
     const [quantity, setQuantity] = useState(0)
     const [phone, setPhone] = useState()
     const [amount, setAmount] = useState(0)
@@ -73,6 +76,7 @@ const Home = () => {
         });
         const body = await response.json();
         setResponse(body)
+        console.log("response ", responseReceived);
         toastr.options = {
             "closeButton": false,
             "debug": false,
@@ -98,33 +102,33 @@ const Home = () => {
     return (<React.Fragment>
         <Header />
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">order your biriyani</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <h5 className="modal-title" id="exampleModalLabel">order your biriyani</h5>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div className="modal-body">
                         <form onSubmit={handleSubmit}>
-                            <div class="form-group">
-                                <label for="phone">phone number</label>
+                            <div className="form-group">
+                                <label htmlFor="phone">phone number</label>
                                 <input type="tel" className="form-control" id="phone" pattern="(\+91)?(-)?\s*?(91)?\s*?(\d{3})-?\s*?(\d{3})-?\s*?(\d{4})" value={phone} onChange={(e) => handlePhone(e.target.value)} aria-describedby="phone" required />
 
                             </div>
-                            <div class="form-group">
-                                <label for="biriyani">biriyani type</label>
-                                <input type="text" class="form-control" id="biriyani" value="chicken (1/2 plate)" disabled aria-describedby="biriyani" />
+                            <div className="form-group">
+                                <label htmlFor="biriyani">biriyani type</label>
+                                <input type="text" className="form-control" id="biriyani" value="chicken (1/2 plate)" disabled aria-describedby="biriyani" />
 
                             </div>
-                            <div class="form-group">
-                                <label for="quantity">quantity</label>
-                                <input type="number" class="form-control" id="quantity" onChange={(e) => handlyChange(e.target.value)} required />
+                            <div className="form-group">
+                                <label htmlFor="quantity">quantity</label>
+                                <input type="number" className="form-control" id="quantity" onChange={(e) => handlyChange(e.target.value)} required />
                             </div>
                             {quantity !== 0 ? <h6>Amount : {amount}</h6> : <h6></h6>}
-                            <button type="submit" class="btn btn-primary">order now</button>
+                            <button type="submit" className="btn btn-primary">order now</button>
                         </form>
                     </div>
 
