@@ -144,9 +144,9 @@ const Home = () => {
                 <div className='content'>
                     <h1>Turning Point</h1>
                     <p>the only place to get a <TextLoop>
-                        <span> HYGIENIC</span>
-                        <span> HEALTHY</span>
-                        <span> HOME MADE</span>
+                        <span style={{color:"green", fontWeight:'bold'}}> HYGIENIC</span>
+                        <span style={{ color: "green", fontWeight: 'bold' }}> HEALTHY</span>
+                        <span style={{ color: "green", fontWeight: 'bold'}}> HOME MADE</span>
                     </TextLoop> biriyani</p>
                     {/* <p>the only place to get a home made biriyani</p> */}
                     <Link to='/#offers' smooth><i className="fas fa-angle-double-down"></i></Link>
