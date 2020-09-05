@@ -28,10 +28,7 @@ const Home = () => {
                 setLat(position.coords.latitude)
                 setLong(position.coords.longitude)
             },
-            {
-                enableHighAccuracy: true
-                , timeout: 5000, maximumAge: 1000
-            },
+            
             error => console.log(error),
             {
                 enableHighAccuracy: true,
