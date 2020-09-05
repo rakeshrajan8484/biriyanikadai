@@ -98,7 +98,7 @@ app.post('/api/orderFood', (req, res) => {
         address: req.body.address,
         quantity: req.body.quantity,
         amount: req.body.amount,
-        date: today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate(),
+        date: req.body.today,
         _id: new ObjectID()
     };
 

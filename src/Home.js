@@ -6,16 +6,19 @@ import Footer from './Footer';
 import Geocode from "react-geocode";
 import toastr from 'toastr'
 import { HashLink as Link } from 'react-router-hash-link';
+import moment from 'moment'
+import TextLoop from "react-text-loop";
 
-
+const $ = window.$
 
 Geocode.setApiKey("AIzaSyAKL5b6WbvtUMfxrocrpNzj1IMj7NrPgV0");
 
 const Home = () => {
     useEffect(() => {
-        
+        return getCurrentLocation
     })
     const getCurrentLocation = async () => {
+
         navigator.geolocation.getCurrentPosition(
             position => {
                 let region = {
@@ -29,14 +32,10 @@ const Home = () => {
                 setLat(position.coords.latitude)
                 setLong(position.coords.longitude)
             },
-            
-            error => console.log(error),
-            {
-                enableHighAccuracy: true,
-                timeout: 20000,
-                maximumAge: 1000
-            }
+
+            error => console.log(error)
         );
+
         Geocode.fromLatLng(lat, lng).then(
             response => {
                 const address = response.results[0].formatted_address;
@@ -47,6 +46,10 @@ const Home = () => {
             }
         );
     }
+
+
+
+
     const [region, setRegion] = useState()
 
     const [lat, setLat] = useState(0)
@@ -65,12 +68,15 @@ const Home = () => {
         setPhone(e)
     }
     const handleSubmit = async () => {
+
+        var today = Date.now()
+        today = moment(today).format('MMMM Do YYYY, h:mm:ss a');
         const response = await fetch('/api/orderFood', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ phone, quantity, amount, address }),
+            body: JSON.stringify({ phone, quantity, amount, address, today }),
         });
         const body = await response.json();
         setResponse(body)
@@ -98,7 +104,7 @@ const Home = () => {
 
     }
     return (<React.Fragment>
-        <Header getCurrentLocation={getCurrentLocation}/>
+        <Header getCurrentLocation={getCurrentLocation} />
 
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
@@ -110,7 +116,7 @@ const Home = () => {
                         </button>
                     </div>
                     <div className="modal-body">
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={() => handleSubmit()}>
                             <div className="form-group">
                                 <label htmlFor="phone">phone number</label>
                                 <input type="tel" className="form-control" id="phone" pattern="(\+91)?(-)?\s*?(91)?\s*?(\d{3})-?\s*?(\d{3})-?\s*?(\d{4})" value={phone} onChange={(e) => handlePhone(e.target.value)} aria-describedby="phone" required />
@@ -125,7 +131,7 @@ const Home = () => {
                                 <label htmlFor="quantity">quantity</label>
                                 <input type="number" className="form-control" id="quantity" onChange={(e) => handlyChange(e.target.value)} required />
                             </div>
-                            {quantity !== 0 ? <h6>Amount : {amount}</h6> : <h6></h6>}
+                            {quantity !== 0 ? <h6>amount : {amount}</h6> : <h6></h6>}
                             <button type="submit" className="btn btn-primary">order now</button>
                         </form>
                     </div>
@@ -137,7 +143,12 @@ const Home = () => {
             <div className='homeBg'>
                 <div className='content'>
                     <h1>Turning Point</h1>
-                    <p>the only place to get a home made biriyani</p>
+                    <p>the only place to get a <TextLoop>
+                        <span> HYGIENIC</span>
+                        <span> HEALTHY</span>
+                        <span> HOME MADE</span>
+                    </TextLoop> biriyani</p>
+                    {/* <p>the only place to get a home made biriyani</p> */}
                     <Link to='/#offers' smooth><i className="fas fa-angle-double-down"></i></Link>
                 </div>
             </div>

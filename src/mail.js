@@ -17,7 +17,7 @@ async function main(props) {
     const mailOptions = {
         from: '"Turning Point" <turningpoint.kadai@gmail.com>', // sender address
         to: "biriyanikadai2020@gmail.com", // list of receivers
-        subject: "new order at Turning Point", // Subject line
+        subject: `new order on ${props.today}`, // Subject line
         text: `Biriyani order for  ${props.quantity} plates from ${props.address} has been placed. Mobile: ${props.phone}, Amount: ${props.amount}`
     };
     // send mail with defined transport object

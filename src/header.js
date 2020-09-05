@@ -6,6 +6,7 @@ const $ = window.$
 const Header = (props) => {
 
     useEffect(() => {
+        
         window.onscroll = function () { myFunction() };
 
         var navbar = document.getElementById("header");
@@ -36,7 +37,7 @@ const Header = (props) => {
                 <Link className="nav-link active" to="#home" smooth>home</Link>
                 <Link className="nav-link" to="#offers" smooth>offers</Link>
                 <Link className="nav-link" to="#contact" smooth>contact us</Link>
-                <button type="button" className="btn btn-outline-light" onClick={()=>props.getCurrentLocation()} data-toggle="modal" data-target="#exampleModal">order now</button>
+                <button type="button" className="btn btn-outline-light"  data-toggle="modal" data-target="#exampleModal">order now</button>
 
             </div>
         </div>

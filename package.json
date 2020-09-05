@@ -30,6 +30,7 @@
     "react-router-hash-link": "^1.2.2",
     "react-scripts": "3.4.3",
     "react-stripe-checkout": "^2.6.3",
+    "react-text-loop": "^2.3.0",
     "scss-loader": "0.0.1",
     "stripe": "^8.77.0",
     "toastr": "^2.1.4",
