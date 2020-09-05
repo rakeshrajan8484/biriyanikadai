@@ -5,6 +5,7 @@ import Contact from './Contact';
 import Footer from './Footer';
 import Geocode from "react-geocode";
 import toastr from 'toastr'
+import { HashLink as Link } from 'react-router-hash-link';
 
 
 
@@ -12,7 +13,7 @@ Geocode.setApiKey("AIzaSyAKL5b6WbvtUMfxrocrpNzj1IMj7NrPgV0");
 
 const Home = () => {
     useEffect(() => {
-        getCurrentLocation()
+        
     })
     const getCurrentLocation = async () => {
         navigator.geolocation.getCurrentPosition(
@@ -97,7 +98,7 @@ const Home = () => {
 
     }
     return (<React.Fragment>
-        <Header />
+        <Header getCurrentLocation={getCurrentLocation}/>
 
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
@@ -137,7 +138,7 @@ const Home = () => {
                 <div className='content'>
                     <h1>Turning Point</h1>
                     <p>the only place to get a home made biriyani</p>
-                    <i className="fas fa-angle-double-down"></i>
+                    <Link to='/#offers' smooth><i className="fas fa-angle-double-down"></i></Link>
                 </div>
             </div>
         </section>

@@ -3,7 +3,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 
 const $ = window.$
 
-const Header = () => {
+const Header = (props) => {
 
     useEffect(() => {
         window.onscroll = function () { myFunction() };
@@ -27,16 +27,16 @@ const Header = () => {
         });
     })
     return (<nav id='header' className="navbar navbar-expand-lg pt-3 shadow bg-dark text-light w-100">
-        <a className="navbar-brand" href="#">Turning Point</a>
+        <h6 className="navbar-brand" >Turning Point</h6>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
+            <i className="fas fa-bars"></i>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav ml-auto">
                 <Link className="nav-link active" to="#home" smooth>home</Link>
                 <Link className="nav-link" to="#offers" smooth>offers</Link>
                 <Link className="nav-link" to="#contact" smooth>contact us</Link>
-                <button type="button" className="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">order now</button>
+                <button type="button" className="btn btn-outline-light" onClick={()=>props.getCurrentLocation()} data-toggle="modal" data-target="#exampleModal">order now</button>
 
             </div>
         </div>

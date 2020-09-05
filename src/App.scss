@@ -21,7 +21,9 @@ body{
   .content {
   padding: 16px;
 }
-
+.fa-bars:before{
+  color:#fff
+}
 .sticky {
     background-color: #3f3f3d;
   position: fixed;

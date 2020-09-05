@@ -6,7 +6,7 @@ async function main(props) {
         port: 587,
         secure: false,
         auth: {
-            user: "biriyanikadai2020@gmail.com", // generated ethereal user
+            user: "turningpoint.kadai@gmail.com", // generated ethereal user
             pass: "manoj2210", // generated ethereal password
         },
         tls: {
@@ -15,7 +15,7 @@ async function main(props) {
         }
     });
     const mailOptions = {
-        from: 'biriyanikadai2020@gmail.com', // sender address
+        from: '"Turning Point" <turningpoint.kadai@gmail.com>', // sender address
         to: "biriyanikadai2020@gmail.com", // list of receivers
         subject: "new order at Turning Point", // Subject line
         text: `Biriyani order for  ${props.quantity} plates from ${props.address} has been placed. Mobile: ${props.phone}, Amount: ${props.amount}`
@@ -26,6 +26,7 @@ async function main(props) {
             console.log(error);
         } else {
             console.log('Email sent: ' + info.response);
+            console.log('Email sent: ' + info);
         }
     });
 }
